@@ -1,0 +1,45 @@
+{
+	"name": "DelimitedText_source",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureProjectDataLake",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"container_source": {
+				"type": "string"
+			},
+			"directory_source": {
+				"type": "string"
+			},
+			"file_source": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": {
+					"value": "@dataset().file_source",
+					"type": "Expression"
+				},
+				"folderPath": {
+					"value": "@dataset().directory_source",
+					"type": "Expression"
+				},
+				"fileSystem": {
+					"value": "@dataset().container_source",
+					"type": "Expression"
+				}
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": []
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

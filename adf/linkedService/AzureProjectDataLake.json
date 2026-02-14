@@ -1,0 +1,22 @@
+{
+	"name": "AzureProjectDataLake",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "AzureBlobFS",
+		"typeProperties": {
+			"url": "https://azuredlstore.dfs.core.windows.net",
+			"tenant": "880d1c9a-87a4-49c6-bb99-cfeb53fd2548",
+			"servicePrincipalId": "537ebdfc-1637-487f-bf00-fffbbe0fae9a",
+			"servicePrincipalCredentialType": "ServicePrincipalKey",
+			"servicePrincipalCredential": {
+				"type": "AzureKeyVaultSecret",
+				"store": {
+					"referenceName": "AzureProjectVault",
+					"type": "LinkedServiceReference"
+				},
+				"secretName": "azureapp-secret"
+			}
+		}
+	}
+}
